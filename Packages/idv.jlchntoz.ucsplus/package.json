@@ -1,0 +1,25 @@
+{
+  "name": "idv.jlchntoz.ucsplus",
+  "displayName": "UdonChips Plus",
+  "version": "0.0.1",
+  "unity": "2022.3",
+  "description": "Workflow enhanced UdonChips implementation for VRChat",
+  "vrchatVersion": "2022.1.1",
+  "license": "MIT",
+  "vpmDependencies": {
+    "com.vrchat.core.vpm-resolver": "0.x.x",
+    "com.vrchat.worlds": "3.x.x",
+    "idv.jlchntoz.vrcw-foundation": "0.x.x"
+  },
+  "legacyFolders" : {
+    "Assets/UdonChips/00_UdonChips" : "2a9910447040a514d9b3905738738a07"
+  },
+  "legacyFiles" : {
+    "UdonChips.prefab" : "961f84cef8be116489bcd6a79c5a2446"
+  },
+  "author": {
+    "name": "Jeremy Lam aka. Vistanz",
+    "email": "me@moka-rin.moe",
+    "url": "https://xtl.booth.pm"
+  }
+}
