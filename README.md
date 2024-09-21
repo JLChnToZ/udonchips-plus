@@ -28,7 +28,53 @@ public class MyUdonChipsGimmick : UdonSharpBehaviour {
 }
 ```
 
-Under the hood I have integrated [VRCW Foundation](https://github.com/JLChnToZ/vrcw-foundation) to enhance the workflow, including build-time singleton enforcement/auto bind logic. You can [read the source code](Packages/idv.jlchntoz.ucsplus/Runtime/UdonChips.cs) to see how I integrate.
+Thirdly, your U# scripts can truly listen to updates of user's wallet, with the event-based system:
+```csharp
+using UnityEngine;
+using UdonSharp;
+using UCS;
+using JLChnToZ.VRC.Foundation;
+
+public class MyUdonChipsGimmick : UdonSharpBehaviour {
+    [SerializeField]
+    [HideInInspector]
+    [BindUdonSharpEvent] // BindUdonSharpEvent makes this script automatically listen to its callbacks.
+    UdonChips udonChips;
+
+    // This will be called when someone adds or takes money from user's udonChips wallet.
+    public void _OnMoneyChanged() {
+        // Your logic here
+    }
+}
+```
+
+An alternative logic:
+```csharp
+using UnityEngine;
+using UdonSharp;
+using UCS;
+using JLChnToZ.VRC.Foundation;
+
+public class MyUdonChipsGimmick : UdonSharpBehaviour {
+    [SerializeField]
+    [HideInInspector]
+    UdonChips udonChips;
+
+    void Start() {
+        // This registers only when your gimmick first activated.
+        // It will have a little runtime performance overhead,
+        // but gurantees no callback will be fired before your script initialized.
+        udonChips._AddListener(this);
+    }
+
+    // This will be called when someone adds or takes money from user's udonChips wallet.
+    public void _OnMoneyChanged() {
+        // Your logic here
+    }
+}
+```
+
+Under the hood I have integrated [VRCW Foundation](https://github.com/JLChnToZ/vrcw-foundation) to enhance the workflow, including event callback and build-time singleton enforcement/auto bind logic. You can [read the source code](Packages/idv.jlchntoz.ucsplus/Runtime/UdonChips.cs) to see how I integrate.
 
 ## Installation
 
