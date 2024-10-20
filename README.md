@@ -74,6 +74,8 @@ public class MyUdonChipsGimmick : UdonSharpBehaviour {
 }
 ```
 
+Fourthly, it built-in supports auto save/load with [player persistence API](https://vrc-persistence-docs.netlify.app/worlds/udon/persistence/).
+
 Under the hood I have integrated [VRCW Foundation](https://github.com/JLChnToZ/vrcw-foundation) to enhance the workflow, including event callback and build-time singleton enforcement/auto bind logic. You can [read the source code](Packages/idv.jlchntoz.ucsplus/Runtime/UdonChips.cs) to see how I integrate.
 
 ## Installation
